@@ -100,7 +100,18 @@ Menu.prototype = {
 
     // Create an oscillating animation tween for the entire group
     this.game.add.tween(this.titleGroup).to({y:115}, 350, Phaser.Easing.Linear.NONE, true, 0, 1000, true);
+
+    // Add a start button with a callback
+    this.startButton = this.game.add.button(this.game.width/2, 300, 'startButton', this.startClick, this);
+    this.startButton.anchor.setTo(0.5, 0.5);
   },
+
+  startClick: function() {
+    // Start button click handler
+    // Start the 'play' state
+    this.game.state.start('play');
+  },
+
   update: function() {
 
   }
